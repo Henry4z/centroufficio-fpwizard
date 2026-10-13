@@ -2,7 +2,7 @@
 // accettato il certificato HTTPS della stampante, apre la sua pagina e completa il collegamento da sola al ritorno.
 // Link diretto: …/collega oppure …/collega?ip=192.168.1.111 (vedi collega.html).
 
-import { $, $$, esc, toast, fresh, store } from '../ui.js';
+import { $, $$, esc, toast, fresh, store, ipField } from '../ui.js';
 import { state, newPrinter, savePrinter, selectPrinter, cache, saveCache } from '../state.js';
 import * as fp from '../fpmate.js';
 import * as C from '../commands.js';
@@ -34,6 +34,7 @@ export function collega(main, ipArg = '') {
   const out = $('#out', main);
   const show = (html) => { out.hidden = false; out.innerHTML = html; out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); };
   const ipInput = $('#ip', main);
+  ipField(ipInput);
 
   const go = (raw) => {
     const ip = String(raw || '').trim().replace(/,/g, '.').replace(/^https?:\/\//, '').replace(/\/.*$/, '');

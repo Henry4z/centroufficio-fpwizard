@@ -1,6 +1,6 @@
 // Viste generali: home, stampanti, stato, registro, guida.
 
-import { $, $$, esc, toast, confirmBox, promptBox, task, icon, copyText } from '../ui.js';
+import { $, $$, esc, toast, confirmBox, promptBox, task, icon, copyText, ipField } from '../ui.js';
 import { state, current, newPrinter, savePrinter, deletePrinter, selectPrinter, cache, saveCache, call, ensureDayClosed } from '../state.js';
 import * as fp from '../fpmate.js';
 import * as C from '../commands.js';
@@ -191,6 +191,7 @@ export function printerEdit(main, id) {
     ${location.protocol === 'https:' ? '<div class="notice">L\'app è aperta in <b>HTTPS</b>: per raggiungere la stampante serve il protocollo HTTPS (SSL attivo sulla stampante). Vedi la <a href="#/help">Guida</a>.</div>' : ''}`;
 
   const f = $('#pf', main);
+  ipField(f.host);
   const syncSim = () => { $('#realFields', main).classList.toggle('hidden', f.simulator.checked); };
   f.simulator.addEventListener('change', syncSim);
   syncSim();

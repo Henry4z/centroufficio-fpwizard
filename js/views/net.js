@@ -2,7 +2,7 @@
 // e-mail (4232/4032), EFT-POS (4231/4031), accesso ai dati riservati DGFE/MPR (4238/4038).
 // Tracciati verificati in lettura su FP-81 II RT; le scritture ripetono il tracciato letto e vengono rilette.
 
-import { $, $$, esc, toast, confirmBox, promptBox, task, fresh, store } from '../ui.js';
+import { $, $$, esc, toast, confirmBox, promptBox, task, fresh, store, ipField } from '../ui.js';
 import { current, cache, saveCache, call, savePrinter } from '../state.js';
 import { mixedWarning } from './general.js';
 import * as fp from '../fpmate.js';
@@ -287,6 +287,8 @@ const VIEWS = {
         <p class="muted" style="font-size:.85rem">Le porte oltre 9999 si programmano solo dalla tastiera. Copie e stampa valgono per i pagamenti fatti dalla tastiera della stampante.</p>`}
       </section>
       <div class="sticky-actions"><button class="btn secondary" id="btnRead">Leggi dalla stampante</button><button class="btn" id="btnWrite" ${F ? '' : 'disabled'}>Scrivi modifiche</button></div>`;
+    $('#fIp', body)?.setAttribute('inputmode', 'decimal');
+    ipField($('#fIp', body));
     $('#btnRead', body).onclick = () => task('Lettura EFT-POS…', async () => {
       await call((pr) => loadEft(pr, X));
       saveCache(); rerender();

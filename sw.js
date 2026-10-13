@@ -1,7 +1,7 @@
 // Service worker: rende l'app disponibile anche senza connessione a internet.
 // Le richieste verso la stampante (fpmate.cgi) non passano mai dalla cache.
 
-const VERSION = 'fpwizard-v19';
+const VERSION = 'fpwizard-v20';
 const FONT_CACHE = 'fpwizard-fonts'; // il carattere resta in cache anche tra una versione e l'altra
 const LOGOS = ['01_epson', '02_pasqua', '03_halloween', '04_natalea', '05_nataleb', '06_valentino', '07_palloncini', '08_vacanze', '09_torta']
   .flatMap((n) => [`assets/logos/${n}_80.bin`, `assets/logos/${n}_58_60.bin`]);

@@ -191,6 +191,20 @@ export function pickFile(accept) {
   });
 }
 
+/**
+ * Campo indirizzo IP: il tastierino numerico dell'iPhone in italiano ha la virgola e non il punto,
+ * quindi mentre si scrive ogni virgola diventa un punto (il cursore resta dov'era).
+ */
+export function ipField(input) {
+  if (!input) return;
+  input.addEventListener('input', () => {
+    if (!input.value.includes(',')) return;
+    const pos = input.selectionStart;
+    input.value = input.value.replace(/,/g, '.');
+    try { input.setSelectionRange(pos, pos); } catch { /* alcuni tipi di campo non lo consentono */ }
+  });
+}
+
 export async function copyText(t) {
   try { await navigator.clipboard.writeText(t); toast('Copiato negli appunti', 'ok'); } catch { toast('Copia non disponibile', 'warn'); }
 }
