@@ -8,6 +8,7 @@ App web installabile (PWA) per configurare le stampanti fiscali **Epson FP-81 II
 
 | Sezione | Cosa fa | Comandi |
 |---|---|---|
+| Collega stampante (`…/collega`, anche `…/collega?ip=192.168.1.100`) | Si scrive l'IP e l'app crea la stampante, prova HTTPS (e HTTP dalla versione locale), guida all'accettazione del certificato Epson e completa il collegamento da sola, dando alla stampante nome e matricola letti da essa | `queryPrinterStatus`, 3217 |
 | Sincronizza tutto (schermata iniziale) | Legge in una volta tutte le sezioni scelte e aggiorna i dati di ogni schermata. Le sezioni sono stato, programmazione, tabelle, altre impostazioni, IVA/nature/ATECO, rete e servizi, tastiera, tasti PLU, trasmissioni, scheda SD e contatori; i PLU sono facoltativi. Fa solo letture, si può interrompere e lascia intatte le modifiche non ancora scritte. Su una FP-81 II RT dura circa un minuto e mezzo | solo comandi di lettura |
 | Stato e info | Stato stampante e RT, matricola, firmware, data/ora (lettura e sincronizzazione con il telefono), apertura cassetto, messaggio visore, reset | `queryPrinterStatus`, 3217, `getDate`/`setDate`, 1050 |
 | Intestazione | 16 righe da 40 caratteri, font righe 1–9, anteprima, stampa di prova | 3016/3216, 4016/4216 |
