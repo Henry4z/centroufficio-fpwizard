@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>FP Wizard · Centro Ufficio</title>
+  <meta name="description" content="Centro Ufficio Padova: configurazione delle stampanti fiscali Epson RT (FP-81 II RT, FP-90 III RT) via rete, da iPhone e browser.">
+  <meta name="theme-color" content="#f42d4c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FP Wizard">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn" id="btnBack" aria-label="Indietro" hidden>
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="brand" id="brand" href="#/home" aria-label="Centro Ufficio – FP Wizard" hidden><img src="assets/brand/logo-centro-ufficio.png" alt="Centro Ufficio" width="118" height="22"><span>FP Wizard</span></a>
+    <h1 id="title">FP Wizard</h1>
+    <button class="printer-pill" id="printerPill" aria-label="Stampante selezionata">
+      <span class="dot" id="printerDot"></span><span id="printerName">Nessuna stampante</span>
+    </button>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+
+  <div class="busy" id="busy" hidden>
+    <div class="busy-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <div id="busyText">Attendere…</div>
+      <div class="progress" id="busyProgress" hidden><div></div></div>
+      <button class="btn small ghost" id="busyCancel" hidden>Interrompi</button>
+    </div>
+  </div>
+  <div class="modal" id="modal" hidden></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <noscript>Questa applicazione richiede JavaScript.</noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
