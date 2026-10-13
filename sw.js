@@ -1,14 +1,14 @@
 // Service worker: rende l'app disponibile anche senza connessione a internet.
 // Le richieste verso la stampante (fpmate.cgi) non passano mai dalla cache.
 
-const VERSION = 'fpwizard-v18';
+const VERSION = 'fpwizard-v19';
 const FONT_CACHE = 'fpwizard-fonts'; // il carattere resta in cache anche tra una versione e l'altra
 const LOGOS = ['01_epson', '02_pasqua', '03_halloween', '04_natalea', '05_nataleb', '06_valentino', '07_palloncini', '08_vacanze', '09_torta']
   .flatMap((n) => [`assets/logos/${n}_80.bin`, `assets/logos/${n}_58_60.bin`]);
 const ASSETS = [
   './', 'index.html', 'manifest.webmanifest', 'css/app.css',
   'js/app.js', 'js/ui.js', 'js/state.js', 'js/fpmate.js', 'js/commands.js', 'js/simulator.js', 'js/logo.js', 'js/keyboards.js', 'js/sync.js',
-  'js/views/general.js', 'js/views/config.js', 'js/views/tools.js', 'js/views/vp.js', 'js/views/dgfe.js', 'js/views/totals.js', 'js/views/extras.js', 'js/views/plu.js', 'js/views/diag.js', 'js/views/cassa.js', 'js/views/cambio.js', 'js/views/keys.js', 'js/views/prog.js', 'js/views/iva.js', 'js/views/net.js', 'js/views/tx.js', 'js/views/moduli.js', 'js/wizardxml.js',
+  'js/views/general.js', 'js/views/config.js', 'js/views/tools.js', 'js/views/vp.js', 'js/views/dgfe.js', 'js/views/totals.js', 'js/views/extras.js', 'js/views/plu.js', 'js/views/diag.js', 'js/views/cassa.js', 'js/views/cambio.js', 'js/views/keys.js', 'js/views/prog.js', 'js/views/iva.js', 'js/views/net.js', 'js/views/tx.js', 'js/views/moduli.js', 'js/views/collega.js', 'js/wizardxml.js', 'collega.html',
   'icons/icon-32.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png',
   'assets/brand/logo-centro-ufficio.png',
   ...LOGOS,

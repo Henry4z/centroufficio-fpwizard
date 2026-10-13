@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f42d4c">
+  <title>Collega stampante · FP Wizard</title>
+  <!-- Link breve: …/collega oppure …/collega?ip=192.168.1.100 apre «Collega stampante» nell'app -->
+  <script>
+    (function () {
+      var ip = new URLSearchParams(location.search).get('ip');
+      location.replace('./#/collega' + (ip ? '/' + encodeURIComponent(ip) : ''));
+    })();
+  </script>
+</head>
+<body style="font-family:Lato,-apple-system,sans-serif;text-align:center;padding:40px 16px">
+  <p><a href="./#/collega">Apri «Collega stampante»</a></p>
+</body>
+</html>

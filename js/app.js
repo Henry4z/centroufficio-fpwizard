@@ -18,6 +18,7 @@ import { iva } from './views/iva.js';
 import { net } from './views/net.js';
 import { tx } from './views/tx.js';
 import { moduli } from './views/moduli.js';
+import { collega } from './views/collega.js';
 
 const ROUTES = {
   home: { title: 'FP Wizard', view: G.home, root: true },
@@ -44,6 +45,7 @@ const ROUTES = {
   cassa: { title: 'Simulatore cassa', view: cassa },
   cambio: { title: 'Cambio DGFE', view: cambio },
   moduli: { title: 'Moduli tecnico', view: moduli },
+  collega: { title: 'Collega stampante', view: collega },
   keys: { title: 'Tastiera', view: keys },
   backup: { title: 'Backup e ripristino', view: T.backup },
   console: { title: 'Direct IO', view: T.console_ },
@@ -88,6 +90,11 @@ onChange(() => {
   const id = current()?.id ?? null;
   if (id !== shownPrinter) { shownPrinter = id; render(); }
 });
+// link diretto «…/?ip=192.168.1.100» (o collega.html?ip=…): apre «Collega stampante» con l'IP già scritto
+const linkIp = new URLSearchParams(location.search).get('ip');
+if (linkIp) {
+  history.replaceState(null, '', `${location.pathname}#/collega/${encodeURIComponent(linkIp)}`);
+}
 renderPill();
 render();
 

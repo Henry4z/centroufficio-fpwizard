@@ -364,3 +364,4 @@ pre.ej {
   .hero .actions .btn:first-child { flex-basis: 100%; }
 }
 @media (max-width: 420px) { .hide-xs { display: none; } }
+.hero input, .hero select { color: var(--text); }

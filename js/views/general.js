@@ -89,7 +89,7 @@ export function home(main) {
         <h2>Stampanti fiscali Epson RT <em>a portata di telefono.</em></h2>
         <p class="muted">Configura FP-81 II RT, FP-90 III RT e Server RT tramite rete, direttamente dall'iPhone.</p>
         <div class="actions">
-          <button class="btn" data-go="printer/new">Aggiungi stampante</button>
+          <button class="btn" data-go="collega">Collega stampante</button>
           <button class="btn secondary" id="btnSim">Prova con il simulatore</button>
         </div>`}
     </section>
@@ -137,7 +137,8 @@ export function printers(main) {
           <button class="btn small ghost" data-go="printer/${p.id}">Modifica</button>
         </li>`).join('')}</ul>` : '<div class="empty">Nessuna stampante configurata.</div>'}
       <div class="actions">
-        <button class="btn" data-go="printer/new">Aggiungi stampante</button>
+        <button class="btn" data-go="collega">Collega stampante</button>
+        <button class="btn secondary" data-go="printer/new">Aggiungi a mano</button>
         <button class="btn secondary" id="addSim">Aggiungi simulatore</button>
       </div>
     </section>`;

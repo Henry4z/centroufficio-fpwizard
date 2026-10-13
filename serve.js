@@ -27,9 +27,11 @@ http.createServer((req, res) => {
   if (p.endsWith('/')) p += 'index.html';
   const file = path.normalize(path.join(root, p));
   if (!file.startsWith(root)) { res.writeHead(403); res.end(); return; }
-  fs.readFile(file, (err, data) => {
+  // come GitHub Pages: «/collega» serve «collega.html»
+  const target = !path.extname(file) && fs.existsSync(`${file}.html`) ? `${file}.html` : file;
+  fs.readFile(target, (err, data) => {
     if (err) { res.writeHead(404); res.end('Non trovato'); return; }
-    res.writeHead(200, { 'Content-Type': types[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
+    res.writeHead(200, { 'Content-Type': types[path.extname(target).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
     res.end(data);
   });
 }).listen(port, '0.0.0.0', () => {
